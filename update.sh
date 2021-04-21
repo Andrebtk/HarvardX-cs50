@@ -2,4 +2,4 @@
 
 git add *
 git commit -m "updating my cs50 courses code"
-git push origin main
+git push -u origin main
