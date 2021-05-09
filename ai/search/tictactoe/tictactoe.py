@@ -198,38 +198,91 @@ def utility(board):
     """
     Returns 1 if X has won the game, -1 if O has won, 0 otherwise.
     """
-    if winner(board) == 'X': return 1
-    elif winner(board) == 'O': return -1
-    else: return 0
+    if terminal(board):
+        if winner(board) == 'X': return 1
+        elif winner(board) == 'O': return -1
+        else: return 0
+
+
+def minimax(board):
+
+    #Returns the optimal action for the current player on the board.
+
+    if terminal(board):
+        return None
+    else:
+        if player(board) == X:
+            value, move = max_value(board)
+            return move
+        else:
+            value, move = min_value(board)
+            return move
+
+
+def max_value(board):
+    if terminal(board):
+        return utility(board), None
+
+    v = float('-inf')
+    move = None
+    for action in actions(board):
+        # v = max(v, min_value(result(board, action)))
+        aux, act = min_value(result(board, action))
+        if aux > v:
+            v = aux
+            move = action
+            if v == 1:
+                return v, move
+
+    return v, move
+
+
+def min_value(board):
+    if terminal(board):
+        return utility(board), None
+
+    v = float('inf')
+    move = None
+    for action in actions(board):
+        # v = max(v, min_value(result(board, action)))
+        aux, act = max_value(result(board, action))
+        if aux < v:
+            v = aux
+            move = action
+            if v == -1:
+                return v, move
+
+    return v, move
+"""
 
 
 def minimax(board):
 
     def maxValue(board):
 
-        print("\nmaxValue\n")
+        #print("\nmaxValue\n")
 
         if terminal(board):
             return utility(board), None
 
-        z = -100
+        z = float('-inf')
         move = None
         for act in actions(board):
-            print("act ->" + str(act))
+            #print("act ->" + str(act))
             value = result(board, act)
-            print("value -> " + str(value))
+            #print("value -> " + str(value))
 
             uti, move = miniValue(value)
-            print("uti -> " + str(uti))
-            print("move -> " + str(move))
+            #print("uti -> " + str(uti))
+            #print("move -> " + str(move))
 
             
             if uti > z:
                 z = uti
                 move = act
                 if z == 1:
-                    print("final")
-                    print("act ->" + str(move))
+                    #print("final")
+                    #print("act ->" + str(move))
                     return z, move
 
         return z, move
@@ -238,27 +291,27 @@ def minimax(board):
         
     def miniValue(board):
 
-        print("\nminiValue\n")
+        #print("\nminiValue\n")
 
         if terminal(board):
             return utility(board), None
 
-        z = 100
+        z = float('inf')
         move = None
         for act in actions(board):
-            print("act -> " + str(act))
+            #print("act -> " + str(act))
             value = result(board, act)
-            print("value -> " + str(value))
+            #print("value -> " + str(value))
             uti, move = maxValue(value)
-            print("uti -> " + str(uti))
-            print("move -> " + str(move))
+            #print("uti -> " + str(uti))
+            #print("move -> " + str(move))
 
             if uti < z:
                 z = uti
                 move = act
                 if z == -1:
-                    print("final")
-                    print("act ->" + str(move))
+                    #print("final")
+                    #print("act ->" + str(move))
                     return z, move
             
 
@@ -276,3 +329,4 @@ def minimax(board):
     else:
         uti, bestMove = miniValue(board)    
         return bestMove
+"""
