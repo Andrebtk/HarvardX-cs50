@@ -1,0 +1,2 @@
+compiling : clang readability.c -lcrypt -lcs50 -lm -o readability && ./readability
+
