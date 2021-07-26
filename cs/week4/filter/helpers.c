@@ -121,6 +121,9 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
+    
+    
+    //[!] my own algorithm not the one for the course
     int average;
     RGBTRIPLE a;
     RGBTRIPLE b;
