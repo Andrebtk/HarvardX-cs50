@@ -1,0 +1,19 @@
+
+
+random1 -> random2 -> random3
+
+sort1: 0m0.138s -> 0m0.629s -> 0m17.071s
+sort2: 0m0.015s -> 0m0.092s -> 0m3.305s
+sort3: 0m0.109s -> 0m0.227s -> 0m8.595s
+
+reversed1 -> reversed1 -> reversed3
+
+sort1: 0m0.057s -> 0m0.400s -> 0m13.510s
+sort2: 0m0.016s -> 0m0.050s -> 0m3.367s
+sort3: 0m0.055s -> 0m0.182s -> 0m9.525s
+
+sorted1 -> sorted2 -> sorted3
+
+sort1: 0m0.012s -> 0m0.023s -> 0m3.719s
+sort2: 0m0.011s -> 0m0.029s -> 0m3.727s
+sort3: 0m0.035s -> 0m0.236s -> 0m8.509s

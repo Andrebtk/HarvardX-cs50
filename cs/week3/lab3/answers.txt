@@ -1,0 +1,11 @@
+sort1 uses: bubble sort
+
+How do you know?: Take's the longest time everywere expect on the sorted data
+
+sort2 uses: merge sort
+
+How do you know?: best performance
+
+sort3 uses: selection sort
+
+How do you know?: last one
