@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+            function compute(id, color){
+                x = document.getElementById(id)
+                correct = document.getElementById("Correct")
+
+
+                x.style.backgroundColor = color
+                if(color === "red"){ correct.innerHTML = "Incorrect" }
+                if(color === "green"){ correct.innerHTML = "Correct" }
+            }
+
+            function validate(){
+                var x = document.getElementById("response");
+                incorrect = document.getElementById("Correct2")
+
+
+                if(x.value === "python" || x.value === "Python"){ incorrect.innerHTML = "Correct"; x.style.backgroundColor="green" }
+                else{ incorrect.innerHTML = "Incorrect"; x.style.backgroundColor="red" }
+            }
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>Wich one is not a programming language ?</h3>
+                <button id="1" type="button" onclick="compute('1', 'red')">Rust</button>
+                <button id="2" type="button" onclick="compute('2', 'red')">C</button>
+                <button id="3" type="button" onclick="compute('3', 'green')">HTML</button>
+                <button id="4" type="button" onclick="compute('4', 'red')">PYTHON</button>
+                <button id="5" type="button" onclick="compute('5', 'red')">LUA</button>
+                <button id="6" type="button" onclick="compute('6', 'red')">JAVASCRIPT</button>
+                <button id="7" type="button" onclick="compute('7', 'red')">ASSEMBLY</button>
+                <p id="Correct"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+
+                <h3>What language is the best for machine learning and data science ? </h3>
+                <input type="text" id="response">
+                <button onclick="validate()">Check response</button>
+                <p id="Correct2"></p>
+
+            </div>
+
+        </div>
+    </body>
+</html>
